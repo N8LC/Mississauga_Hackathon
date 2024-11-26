@@ -9,20 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
-  // // Add a marker to the map
-  // const marker = L.marker([51.505, -0.09]).addTo(map);
-
-  // // Add a popup to the marker
-  // marker.bindPopup('<b>Hello world!</b><br>I am a popup.').openPopup();
-
-  // // Add a circle to the map
-  // const circle = L.circle([51.508, -0.11], {
-  //   color: 'red',
-  //   fillColor: '#f03',
-  //   fillOpacity: 0.5,
-  //   radius: 500
-  // }).addTo(map);
-
   // Add a polygon to the map
   const High_Building_Footprint = L.polygon(
       [
@@ -40,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     ).addTo(map);
 
-    // Add a polygon to the map
+  // Add a polygon to the map
   const Natural_Area = L.polygon(
       [
         [43.559807, -79.61678],
@@ -57,18 +43,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     ).addTo(map);
 
-  // // Popup for the circle
-  // circle.bindPopup('I am a circle.');
-  // polygon.bindPopup('I am a polygon.');
+    // add me a polygon please
+    const Stormwater_System = L.polygon(
+      [
+        [43.618928, -79.75616],
+        [43.591582, -79.720437],
+        [43.62539, -79.681279],
+        [43.642287, -79.727307]
+      ],
+      {
+        color: 'Blue',        // Outline color
+        fillColor: 'Blue',  // Fill color
+        fillOpacity: 0.5,     // Fill transparency
+        weight: 3             // Outline thickness
+      }
+    ).addTo(map);
 
+  //Popups for the areas
   High_Building_Footprint.bindPopup('I am a zone with a high building footprint! I have low biodiversity,\
       so I would benefit from green rooftops! My data comes from the Building_Footprints dataset!');
 
   Natural_Area.bindPopup('I am natural zone sanctioned by the city! I already am very green, so I do not really need \
       any green rooftops nearby. Instead cheaper white or blue rooftops can be installed to save money. My data comes from the Natural_Area_System_(NAS) Dataset');
 
+  Stormwater_System.bindPopup('According to the Storm_Sewer_Network dataset, Meadowvale had the most sewer pipe infrastructure. \
+    Compared to other areas like Malton, this area does not need as many blue rooftops. This means that the city should focus on investing\
+    their resources into green or white rooftops to maximise their value, as well as build blue rooftops in the areas that need them like Malton.');
+
   // Popup on map click
-  map.on('click', function (e) {
-      alert(`You clicked the map at ${e.latlng}`);
-  });
+  // map.on('click', function (e) {
+  //     alert(`You clicked the map at ${e.latlng}`);
+  // });
 });
