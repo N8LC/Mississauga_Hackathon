@@ -59,6 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     ).addTo(map);
 
+    var legend = L.control({position: 'bottomleft'});
+    legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend');
+    labels = ['<strong>Categories</strong>'],
+    categories = ['Building Coverage','Natural Area','Stormwater Pipes'];
+
+    for (var i = 0; i < categories.length; i++) {
+
+            div.innerHTML += 
+            labels.push(
+                '<i class="circle" style="background:' + "#de2d26" + '"></i> ' +
+            (categories[i] ? categories[i] : '+'));
+
+        }
+        div.innerHTML = labels.join('<br>');
+    return div;
+    };
+    legend.addTo(map);
+
   //Popups for the areas
   High_Building_Footprint.bindPopup('I am a zone with a high building footprint! I have low biodiversity,\
       so I would benefit from green rooftops! My data comes from the Building_Footprints dataset!');
