@@ -20,4 +20,5 @@ crossorigin=""/>
 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin=""></script>
 ```
+You can find the link to the running site [here](https://n8lc.github.io/Mississauga_Hackathon/index.html).
 [^1]: Thank you to the City of Mississauga as well as my teammates for the chance to attend this wonderful hackathon!
